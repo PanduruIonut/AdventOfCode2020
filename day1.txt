@@ -1,0 +1,19 @@
+DAY 1
+
+var list = document.getElementsByTagName('pre')[0].innerHTML; 
+var numbersArray = list.split("\n").map(Number);
+var differenceArray = numbersArray.map(number=> 2020-number);
+var isPresent = numbersArray.filter(value=> differenceArray.includes(value))
+
+
+for( i in numbersArray){
+	for( j in numbersArray){
+    	for( k in numbersArray){
+        	if(numbersArray[i] + numbersArray[j]+ numbersArray[k] == 2020){
+        		document.write("results:"+ " first: " + numbersArray[i] +" second: "+ numbersArray[j] + " third: "+ numbersArray[k]);
+                document.write("product: " , numbersArray[i] * numbersArray[j] * numbersArray[k]);
+        		break;
+			}
+		}
+	}
+}
