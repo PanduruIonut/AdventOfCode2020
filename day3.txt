@@ -1,0 +1,53 @@
+var content = document.querySelector("pre").textContent;
+
+P1:
+
+function parse(input) {
+  let trees = 0;
+
+  let map = input.split("\n");
+  let pos = 3;
+
+  for (let i = 1; i < map.length; i++) {
+    let last_digit = pos % map[i].length;
+
+    if (map[i][last_digit] == "#") {
+      trees++;
+    }
+
+    pos += 3;
+  }
+
+  return trees;
+} 
+
+P2:
+
+ function parse(input, right, down) {
+  let trees = 0;
+
+  let map = input.split("\n");
+  let pos = right;
+
+  for (let i = down; i < map.length; i += down) {
+    let last_digit = pos % map[i].length;
+
+    if (map[i][last_digit] == "#") {
+      trees++;
+    }
+
+    pos += right;
+  }
+
+  return trees;
+}
+
+function multiply(input) {
+  first = parse(input, 1, 1);
+  second = parse(input, 3, 1);
+  third = parse(input, 5, 1);
+  fourth = parse(input, 7, 1);
+  fifth = parse(input, 1, 2);
+
+  return first * second * third * fourth * fifth;
+}
